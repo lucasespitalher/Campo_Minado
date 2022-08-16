@@ -86,8 +86,14 @@ def main():
         
         print(campo_minado)
 
-        linha = int(input("Linha: "))
-        coluna = int(input("Coluna: "))
+        linha = input("Linha: ")
+        coluna = input("Coluna: ")
+
+        if linha.isnumeric() == False or coluna.isnumeric() == False:
+            print("Digite Apenas Números.")
+            continue
+
+        linha, coluna = int(linha), int(coluna)
 
         if linha < 0 or linha >= campo_minado.linhas or coluna < 0 or coluna >= campo_minado.colunas:
             print("Localização Inválida.")
