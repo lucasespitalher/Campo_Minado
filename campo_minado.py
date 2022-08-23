@@ -68,12 +68,14 @@ class CampoMinado():
 
         cabecalho = []
         for num in range(self.colunas):
-            cabecalho.append(f" {num} ")
+            if num < 10: cabecalho.append(f" 0{num}")
+            else: cabecalho.append(f" {num}")
 
-        print("\n" + "  ", ("").join(cabecalho))
+        print("\n" + "  ", ("").join(cabecalho[:10]) + ("").join(cabecalho[10:]))
 
         for i, item in enumerate(lista):
-            print(i, item + '|')
+            if i < 10: print(f"0{i}", item + '|')
+            else: print(i, item + '|')
 
         return ''
 
