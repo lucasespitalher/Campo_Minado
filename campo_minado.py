@@ -9,10 +9,10 @@ class CampoMinado():
         self.bombas = bombas
         self.campo_minado = dict([((linha, coluna), None) for linha in range(self.linhas) for coluna in range(self.colunas)])
         self.plantar_bombas()
-        self.plantar_numeros()
+        self.platar_numeros()
         self.coordenada = set()
 
-        self.tabuleiro_visivel = [["|  " for linha in range(self.linhas)] for coluna in range(self.colunas)] #
+        self.tabuleiro_visivel = [["|  " for linha in range(self.colunas)] for coluna in range(self.linhas)] #
 
     def plantar_bombas(self):
         contador = 0
@@ -23,7 +23,7 @@ class CampoMinado():
                 self.campo_minado[(lin, col)] = -1
                 contador += 1
 
-    def plantar_numeros(self):
+    def platar_numeros(self):
         for linha in range(self.linhas):
             for coluna in range(self.colunas):
                 if self.campo_minado[(linha, coluna)] != -1:
@@ -67,7 +67,7 @@ class CampoMinado():
             lista.append(("").join(item))
 
         cabecalho = []
-        for num in range(self.linhas):
+        for num in range(self.colunas):
             cabecalho.append(f" {num} ")
 
         print("\n" + "  ", ("").join(cabecalho))
